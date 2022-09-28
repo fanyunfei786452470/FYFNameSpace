@@ -11,6 +11,8 @@ import FYFNameSpace
 
 extension String: FYFNameSpaceWrappable {}
 
+extension UIButton: FYFNameSpaceWrappable {}
+
 extension FYFNameSpace where Base == String {
     public var testMethod: String {
         return base + "namespace"
@@ -21,6 +23,14 @@ extension FYFNameSpace where Base == String {
     }
 }
 
+extension FYFNameSpace where Base == UIButton {
+    public func testButtonMethod() {
+        print("我是一个UIButton")
+        
+        print("base: \(base)")
+    }
+}
+
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -28,10 +38,15 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         let str = "hello"
-        print(str.fyf.testMethod)
-        print(str.fyf.method(string: "namespace"))
+//        print(str.fyf.testMethod)
+//        print(str.fyf.method(string: "namespace"))
         
+        print(str.fyf)
+//        print(str.fyf.method(string: "namespace"))
         
+        let button = UIButton.init(frame: CGRect(x: 100, y: 100, width: 80, height: 30))
+        print(button)
+        button.fyf.testButtonMethod()
     }
 
     override func didReceiveMemoryWarning() {
