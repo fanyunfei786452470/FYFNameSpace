@@ -1,0 +1,1 @@
+import_from_git(url: 'git@github.com:lookingforfanyunfei/FYF-Swift-Release-Fastlane.git')
